@@ -1,4 +1,4 @@
-function slideShow(elt) {
+function rwwmvc(elt, data) {
   var currSlide = 0;
   function $(eltId) {
     return document.getElementById(eltId);
@@ -9,8 +9,8 @@ function slideShow(elt) {
   document.onkeydown=function(e) {
     if(e.keyCode == 32) {
       currSlide++;
-      if(currSlide >= slides.length) {
-        currSlide = slides.length-1;
+      if(currSlide >= data.slides.length) {
+        currSlide = data.slides.length-1;
       }
     } else {
       currSlide--;
@@ -18,7 +18,7 @@ function slideShow(elt) {
         currSlide = 0;
       }
     }
-    render(elt, slides[currSlide]);
+    render(elt, data.slides[currSlide]);
   }
-  render(elt, slides[currSlide]);
+  render(elt, data.slides[currSlide]);
 }
